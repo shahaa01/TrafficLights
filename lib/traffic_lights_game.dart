@@ -1,17 +1,15 @@
-// traffic_lights_game.dart
-
 enum LightColor { off, green, yellow, red }
 
 class TrafficLightsGame {
-  final int rows = 3;
-  final int cols = 4;
+  final int rows = 4;
+  final int cols = 3;
   List<List<LightColor>> board;
   int currentPlayer;
   bool gameOver;
   LightColor? winnerColor;
 
   TrafficLightsGame()
-      : board = List.generate(3, (_) => List.filled(4, LightColor.off)),
+      : board = List.generate(4, (_) => List.filled(3, LightColor.off)),
         currentPlayer = 1,
         gameOver = false,
         winnerColor = null;
@@ -52,8 +50,8 @@ class TrafficLightsGame {
   bool _checkWin(int row, int col) {
     LightColor color = board[row][col];
     return _checkRow(row, color) ||
-           _checkColumn(col, color) ||
-           _checkDiagonals(color);
+        _checkColumn(col, color) ||
+        _checkDiagonals(color);
   }
 
   bool _checkRow(int row, LightColor color) {
@@ -71,9 +69,9 @@ class TrafficLightsGame {
   bool _checkDiagonals(LightColor color) {
     List<List<List<int>>> diagonals = [
       [[0,0], [1,1], [2,2]],
-      [[0,1], [1,2], [2,3]],
-      [[0,3], [1,2], [2,1]],
-      [[0,2], [1,1], [2,0]]
+      [[0,2], [1,1], [2,0]],
+      [[1,0], [2,1], [3,2]],
+      [[1,2], [2,1], [3,0]]
     ];
 
     for (var diag in diagonals) {
@@ -85,7 +83,7 @@ class TrafficLightsGame {
   }
 
   void reset() {
-    board = List.generate(3, (_) => List.filled(4, LightColor.off));
+    board = List.generate(4, (_) => List.filled(3, LightColor.off));
     currentPlayer = 1;
     gameOver = false;
     winnerColor = null;
