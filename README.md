@@ -49,6 +49,6 @@ To build locally:
 3. Run `flutter run` to start the app
 
 ## Credits
-Developed by Aaditya Shah
+Developed by Aaditya Shah, Abiral Shrestha
 Course: CS112
 Instructor: Todd W. Neller
