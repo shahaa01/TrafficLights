@@ -41,13 +41,13 @@ class _TrafficLightsScreenState extends State<TrafficLightsScreen> {
 
   Color _getColor(LightColor color) {
     switch (color) {
-      case LightColor.Off:
+      case LightColor.off:
         return Colors.grey[300]!;
-      case LightColor.Green:
+      case LightColor.green:
         return Colors.green;
-      case LightColor.Yellow:
+      case LightColor.yellow:
         return Colors.yellow;
-      case LightColor.Red:
+      case LightColor.red:
         return Colors.red;
     }
   }
@@ -85,13 +85,13 @@ class _TrafficLightsScreenState extends State<TrafficLightsScreen> {
 
   String _colorToString(LightColor color) {
     switch (color) {
-      case LightColor.Off:
+      case LightColor.off:
         return 'Off';
-      case LightColor.Green:
+      case LightColor.green:
         return 'Green';
-      case LightColor.Yellow:
+      case LightColor.yellow:
         return 'Yellow';
-      case LightColor.Red:
+      case LightColor.red:
         return 'Red';
     }
   }

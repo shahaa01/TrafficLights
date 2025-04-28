@@ -1,6 +1,6 @@
 // traffic_lights_game.dart
 
-enum LightColor { Off, Green, Yellow, Red }
+enum LightColor { off, green, yellow, red }
 
 class TrafficLightsGame {
   final int rows = 3;
@@ -11,7 +11,7 @@ class TrafficLightsGame {
   LightColor? winnerColor;
 
   TrafficLightsGame()
-      : board = List.generate(3, (_) => List.filled(4, LightColor.Off)),
+      : board = List.generate(3, (_) => List.filled(4, LightColor.off)),
         currentPlayer = 1,
         gameOver = false,
         winnerColor = null;
@@ -20,7 +20,7 @@ class TrafficLightsGame {
     if (gameOver || row < 0 || row >= rows || col < 0 || col >= cols) return false;
 
     var cell = board[row][col];
-    if (cell == LightColor.Red) return false;
+    if (cell == LightColor.red) return false;
 
     board[row][col] = _nextColor(cell);
     if (_checkWin(row, col)) {
@@ -34,14 +34,14 @@ class TrafficLightsGame {
 
   LightColor _nextColor(LightColor color) {
     switch (color) {
-      case LightColor.Off:
-        return LightColor.Green;
-      case LightColor.Green:
-        return LightColor.Yellow;
-      case LightColor.Yellow:
-        return LightColor.Red;
-      case LightColor.Red:
-        return LightColor.Red;
+      case LightColor.off:
+        return LightColor.green;
+      case LightColor.green:
+        return LightColor.yellow;
+      case LightColor.yellow:
+        return LightColor.red;
+      case LightColor.red:
+        return LightColor.red;
     }
   }
 
@@ -85,27 +85,21 @@ class TrafficLightsGame {
   }
 
   void reset() {
-    board = List.generate(3, (_) => List.filled(4, LightColor.Off));
+    board = List.generate(3, (_) => List.filled(4, LightColor.off));
     currentPlayer = 1;
     gameOver = false;
     winnerColor = null;
   }
 
-  void printBoard() {
-    for (var row in board) {
-      print(row.map((cell) => _colorToString(cell)).join(" "));
-    }
-  }
-
   String _colorToString(LightColor color) {
     switch (color) {
-      case LightColor.Off:
+      case LightColor.off:
         return ".";
-      case LightColor.Green:
+      case LightColor.green:
         return "G";
-      case LightColor.Yellow:
+      case LightColor.yellow:
         return "Y";
-      case LightColor.Red:
+      case LightColor.red:
         return "R";
     }
   }
